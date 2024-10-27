@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <context:component-scan base-package="br.com.discover.academia.hybris"/>
+    <context:annotation-config/>
+
+
+    <!-- dao -->
+    <bean id="usuarioDAO" class="br.com.discover.academia.hybris.dao.impl.DefaultUsuarioDAO"/>
+
+    <!-- service -->
+    <bean id="usuarioService" class="br.com.discover.academia.hybris.service.impl.DefaultUsuarioService"/>
+
+    <!-- spring database configuration -->
+    <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://172.100.0.103/academia_hybris"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+<!--        <property name="password" value="rootee"/>-->
+    </bean>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+            <property name="dataSource" ref="datasource"/>
+    </bean>
+
+    <bean id="namedJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg ref="datasource"/>
+    </bean>
+</beans>
