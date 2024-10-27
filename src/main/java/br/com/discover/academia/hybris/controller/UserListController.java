@@ -26,7 +26,6 @@ public class UserListController {
         ModelAndView model = new ModelAndView( "user-list");
         model.addObject("users", users);
         return model;
-
     }
 
 }

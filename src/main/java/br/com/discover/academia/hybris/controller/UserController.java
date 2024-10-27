@@ -1,22 +1,21 @@
 package br.com.discover.academia.hybris.controller;
 
-
 import br.com.discover.academia.hybris.model.User;
 import br.com.discover.academia.hybris.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("**/user")
-//@RequestMapping("**/Usuario")
 public class UserController {
 
     @Autowired
@@ -44,31 +43,24 @@ public class UserController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String save(HttpServletRequest request, HttpServletResponse response, Model model) {
-        User user = new User();
+    public RedirectView save(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("user") User user) {
+        user = userService.register(user);
 
-        user.setUsername(request.getParameter("username"));
-        user.setPassword(request.getParameter("password"));
-        user.setFirstName(request.getParameter("firstName"));
-        user.setLastName(request.getParameter("lastName"));
-        user.setEmail(request.getParameter("email"));
-        user.setAddress(request.getParameter("address"));
-        user.setPhone(Integer.valueOf(request.getParameter("phone")));
-
-        userService.register(user);
-
-        return "redirect:/";
+        RedirectView rv = new RedirectView();
+        rv.setUrl("/user?id=" + user.getId());
+        rv.setContextRelative(true);
+        return rv;
     }
 
     @RequestMapping(value = "/delete/{userId}", method = RequestMethod.POST)
-    public String deleteUser(@PathVariable final String userId) {
-        User user = userService.findUserById(Integer.valueOf(userId));
+    public RedirectView deleteUser(@PathVariable final String userId) {
+        userService.delete(Integer.valueOf(userId));
 
-        if (user != null) {
-            userService.delete(Integer.valueOf(userId));
-        }
+        RedirectView rv = new RedirectView();
+        rv.setUrl("/AcademiaHybris_war/users");
+        rv.setContextRelative(true);
 
-        return "redirect:/";
+        return rv;
     }
 
 

@@ -33,8 +33,8 @@
 
     <div class="order-header">
         <div class="sub-title">Header</div>
-<c:url value="/user/save" var="saveuser"/>
-        <form:form id="regForm" modelAttribute="user" action="${saveuser}" method="post">
+
+        <form:form id="regForm" modelAttribute="user" action="/AcademiaHybris_war/user/save" method="post">
             <form:hidden path="id" id="id_user"/>
 
             <c:set var="disabled" value="${user.id > 0}"/>
