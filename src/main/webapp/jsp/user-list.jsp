@@ -38,12 +38,12 @@
                 <th>Nome</th>
                 <th>Sobrenome</th>
             </tr>
-<c:url var="usuarioController" value="/usuario"/>
+<c:url var="userController" value="/user"/>
             <c:forEach var="user" items="${users}">
                 <tr>
-                    <td width="10%"><a href="${usuarioController}?id=${user.id}">${user.id}</a></td>
-                    <td width="40%"><a href="${usuarioController}?id=${user.id}">${user.primeiroNome}</a></td>
-                    <td width="50%"><a href="${usuarioController}?id=${user.id}">${user.sobrenome}</a></td>
+                    <td width="10%"><a href="${userController}?id=${user.id}">${user.id}</a></td>
+                    <td width="40%"><a href="${userController}?id=${user.id}">${user.firstName}</a></td>
+                    <td width="50%"><a href="${userController}?id=${user.id}">${user.lastName}</a></td>
                 </tr>
             </c:forEach>
         </table>
@@ -51,8 +51,8 @@
 
     <div class="order-footer">
         <div>
-            <c:url value="/usuario" var="usuario"/>
-            <a href="${usuario}">Novo Usuario</a>
+            <c:url value="/user" var="user"/>
+            <a href="${user}">Novo Usuario</a>
         </div>
     </div>
 

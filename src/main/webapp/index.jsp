@@ -8,8 +8,8 @@
 </head>
 <body>
 <ul>
-    <c:url value="/usuarios" var="usuarios"/>
-    <li><a href="${usuarios}">Lista de Usuarios</a></li>
+    <c:url value="/users" var="users"/>
+    <li><a href="${users}">Lista de Usuarios</a></li>
 </ul>
 </body>
 </html>

@@ -1,5 +1,5 @@
 var afterDelete = function (){
-    location.replace('usuarios');
+    location.replace('users');
 }
 
 var errorOnDelete = function (){
@@ -12,7 +12,7 @@ var deleteUser = function(){
 
         $.ajax({
               type: "POST",
-              url: ctx.contextPath + '/usuario/delete/'+id,
+              url: ctx.contextPath + '/user/delete/'+id,
               data: {},
               success: afterDelete,
               error: errorOnDelete

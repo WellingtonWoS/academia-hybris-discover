@@ -8,5 +8,5 @@ $(window).on('load', function(){
 
 
 $('.js-novo-usuario').on('click', function () {
-    window.location = "/AcademiaHybris_war/usuario";
+    window.location = "/AcademiaHybris_war/user";
 });

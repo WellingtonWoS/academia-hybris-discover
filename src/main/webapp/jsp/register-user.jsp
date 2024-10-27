@@ -4,8 +4,8 @@
 <%@ taglib prefix="custom" tagdir="/WEB-INF/tags" %>
 
 <c:url var="homepage" value="/"/>
-<c:url var="novousuario" value="/usuario"/>
-<c:url var="listausuario" value="/usuarios"/>
+<c:url var="newuser" value="/user"/>
+<c:url var="listuser" value="/users"/>
 <html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -33,8 +33,8 @@
 
     <div class="order-header">
         <div class="sub-title">Header</div>
-<c:url value="/usuario/salvar" var="salvarusuario"/>
-        <form:form id="regForm" modelAttribute="user" action="${salvarusuario}" method="post">
+<c:url value="/user/save" var="saveuser"/>
+        <form:form id="regForm" modelAttribute="user" action="${saveuser}" method="post">
             <form:hidden path="id" id="id_user"/>
 
             <c:set var="disabled" value="${user.id > 0}"/>
@@ -52,27 +52,27 @@
 
                 <div class="flex-row">
                     <div class="flex-group">
-                        <div class="flex-col"><form:label path="senha">Password</form:label></div>
+                        <div class="flex-col"><form:label path="password">Password</form:label></div>
                         <div class="flex-col">
-                            <form:password path="senha" name="password" id="password" class="input-width-100"/>
+                            <form:password path="password" name="password" id="password" class="input-width-100"/>
                         </div>
                     </div>
                 </div>
 
                 <div class="flex-row">
                     <div class="flex-group flex-group-width">
-                        <div class="flex-col"><form:label path="primeiroNome">FirstName</form:label></div>
+                        <div class="flex-col"><form:label path="firstName">FirstName</form:label></div>
                         <div class="flex-col">
-                            <form:input path="primeiroNome" name="firstname" id="firstname" class="input-width-100"/>
+                            <form:input path="firstName" name="firstname" id="firstname" class="input-width-100"/>
                         </div>
                     </div>
                 </div>
 
                 <div class="flex-row">
                     <div class="flex-group flex-group-width">
-                        <div class="flex-col"><form:label path="sobrenome">LastName</form:label></div>
+                        <div class="flex-col"><form:label path="lastName">LastName</form:label></div>
                         <div class="flex-col">
-                            <form:input path="sobrenome" name="lastname" id="lastname" class="input-width-100"/>
+                            <form:input path="lastName" name="lastname" id="lastname" class="input-width-100"/>
                         </div>
                     </div>
                 </div>
@@ -88,18 +88,18 @@
 
                 <div class="flex-row">
                     <div class="flex-group flex-group-width">
-                        <div class="flex-col"><form:label path="endereco">Address</form:label></div>
+                        <div class="flex-col"><form:label path="address">Address</form:label></div>
                         <div class="flex-col">
-                            <form:input path="endereco" name="address" id="address" class="input-width-100"/>
+                            <form:input path="address" name="address" id="address" class="input-width-100"/>
                         </div>
                     </div>
                 </div>
 
                 <div class="flex-row">
                     <div class="flex-group">
-                        <div class="flex-col"><form:label path="telefone">Phone</form:label></div>
+                        <div class="flex-col"><form:label path="phone">Phone</form:label></div>
                         <div class="flex-col">
-                            <form:input path="telefone" name="phone" id="phone" class="input-width-100"/>
+                            <form:input path="phone" name="phone" id="phone" class="input-width-100"/>
                         </div>
                     </div>
                 </div>
@@ -120,8 +120,8 @@
 
 <div class="page-footer">
     <a href="${homepage}">Home</a> |
-    <a href="${listausuario}">Lista de Usuarios</a> |
-    <a href="${novousuario}">Novo Usuario</a>
+    <a href="${listuser}">Lista de Usuarios</a> |
+    <a href="${newuser}">Novo Usuario</a>
 </div>
 
 </body>
