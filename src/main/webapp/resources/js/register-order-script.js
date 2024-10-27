@@ -14,19 +14,19 @@ var successLoadProducts = function (result,status,xhr){
         var orderDeleted = eval($('#orderDeleted').val());
         console.log(orderDeleted);
 
-        draw_a_table_from_json(result, tableConfig, "internalId", !orderDeleted, container);
+        draw_a_table_from_json(result, tableConfig, "id", !orderDeleted, container);
     }
 }
 
 var removeProduct = function(id){
     var sendRemove = function (id){
         var data = {
-            internalId: id
+            id: id
         }
 
          $.ajax({
               type: "POST",
-              url: ctx.contextPath + '/order-controller/remove-product',
+              url: ctx.contextPath + '/order/remove-product',
               data: JSON.stringify(data),
               success: successLoadProducts,
               dataType: "json",
@@ -44,7 +44,7 @@ var loadProducts = function(){
 
     $.ajax({
       type: "POST",
-      url: ctx.contextPath + '/order-controller/load-products',
+      url: ctx.contextPath + '/order/load-products',
       data: JSON.stringify(data),
       success: successLoadProducts,
       dataType: "json",
@@ -62,14 +62,14 @@ var addProduct = function(){
     var quantity = $('.js-quantidade').val();
 
     var data = {
-        productId : productId,
-        productName: productName,
-        quantidade:  quantity
+        id : productId,
+        name: productName,
+        quantity:  quantity
     }
 
     $.ajax({
       type: "POST",
-      url: ctx.contextPath + '/order-controller/add-product',
+      url: ctx.contextPath + '/order/add-product',
       data: JSON.stringify(data),
       success: successLoadProducts,
       error: errorAddProduct,
@@ -92,7 +92,7 @@ var deleteOrder = function(){
 
         $.ajax({
               type: "POST",
-              url: ctx.contextPath + '/order-controller/delete/'+id,
+              url: ctx.contextPath + '/order/delete/'+id,
               data: {},
               success: afterDelete,
               error: errorOnDelete

@@ -1,5 +1,5 @@
 var redirectToPedido = function(){
-    window.location = "order-controller";
+    window.location = "order";
 }
 
 $(window).on('load', function(){

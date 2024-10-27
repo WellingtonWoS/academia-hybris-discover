@@ -8,8 +8,13 @@
 </head>
 <body>
 <ul>
-    <c:url value="/users" var="users"/>
-    <li><a href="${users}">Lista de Usuarios</a></li>
+    <c:url var="listUser" value="/users"/>
+    <c:url var="notFound" value="/not-found"/>
+    <c:url var="listOrder" value="/orders"/>
+
+    <li><a href="${listUser}">Lista de Usuarios</a></li>
+    <li><a href="${listOrder}">Lista de Pedidos</a></li>
+    <li><a href="${notFound}">Not Found Page</a></li>
 </ul>
 </body>
 </html>
