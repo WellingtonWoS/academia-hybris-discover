@@ -1,5 +1,3 @@
-# Boas vindas!
+# Servlet Puro MVC!
 
-Seja bem vindo a Academia SAP Commerce 2024 da Discover!
-
-Este repositório conterá o material utilizado durante as aulas, os arquivos das tarefas que você realizará, além de alguns exercicios complementares e alguns conteúdos extras, assim você pode revisar se perdeu alguma coisa.
+![MVC-MVC drawio (1)](https://github.com/user-attachments/assets/05ed495b-d639-43cf-a6a3-4778632179e2)
